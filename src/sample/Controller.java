@@ -1,5 +1,6 @@
 package sample;
 
+import javafx.scene.layout.BorderPane;
 import sample.datamodel.Contact;
 import sample.datamodel.ContactData;
 import javafx.fxml.FXML;
@@ -12,7 +13,7 @@ import java.util.Optional;
 
 public class Controller {
     @FXML
-    private GridPane gridPane;
+    private BorderPane mainBorderPane;
     @FXML
     private TableView<Contact> contactTableView;
 
@@ -30,7 +31,7 @@ public class Controller {
     @FXML
     public void showNewContactDialog() {
         dialog = new Dialog<>();
-        dialog.initOwner(gridPane.getScene().getWindow());
+        dialog.initOwner(mainBorderPane.getScene().getWindow());
         dialog.setTitle("New Contact");
         dialog.setHeaderText("Use This Dialog to Add New Contact");
 
@@ -60,7 +61,7 @@ public class Controller {
     public void showEditContactDialog() {
         Contact contact = contactTableView.getSelectionModel().getSelectedItem();
         dialog = new Dialog<>();
-        dialog.initOwner(gridPane.getScene().getWindow());
+        dialog.initOwner(mainBorderPane.getScene().getWindow());
         dialog.setTitle("Edit Contact");
         dialog.setHeaderText("Use this dialog to edit a contact");
         FXMLLoader fxmlLoader = new FXMLLoader();
