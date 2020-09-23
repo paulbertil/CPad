@@ -1,0 +1,54 @@
+
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<GridPane fx:id="gridPane" fx:controller="sample.Controller"
+          xmlns:fx="http://javafx.com/fxml" >
+
+
+    <MenuBar GridPane.rowIndex="0" GridPane.columnIndex="0">
+        <Menu text="Contact">
+            <items>
+                <MenuItem onAction="#showNewContactDialog" text="New" />
+                <SeparatorMenuItem />
+                <MenuItem text="Edit" onAction="#showEditContactDialog" />
+                <SeparatorMenuItem />
+                <MenuItem onAction="#handleDeleteContact" text="Delete" />
+            </items>
+        </Menu>
+    </MenuBar>
+
+
+
+    <TableView fx:id="contactTableView" GridPane.columnIndex="0" GridPane.rowIndex="1">
+        <columns>
+            <TableColumn fx:id="firstNameColumn" prefWidth="200" text="First Name">
+                <cellValueFactory>
+                    <PropertyValueFactory property="firstName" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="lastNameColumn" prefWidth="200" text="Last Name">
+                <cellValueFactory>
+                    <PropertyValueFactory property="lastName" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="phoneNumberColumn" prefWidth="200" text="Phone Number">
+                <cellValueFactory>
+                    <PropertyValueFactory property="phoneNumber" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="notesColumn" prefWidth="200" text="Notes">
+                <cellValueFactory>
+                    <PropertyValueFactory property="notes" />
+                </cellValueFactory>
+            </TableColumn>
+        </columns>
+    </TableView>
+
+
+</GridPane>
